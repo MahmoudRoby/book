@@ -53,19 +53,16 @@ class BestSellerListViewItem extends StatelessWidget {
                     'J.K. Rolling',
                     style: Styles.textStyle14,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 16),
-                    child: Row(
-                      children: [
-                        Text(
-                          '19.99 \$',
-                          style: Styles.textStyle20
-                              .copyWith(fontWeight: FontWeight.bold),
-                        ),
-                        const Spacer(),
-                        const BookRating(),
-                      ],
-                    ),
+                  Row(
+                    children: [
+                      Text(
+                        '19.99 \$',
+                        style: Styles.textStyle20
+                            .copyWith(fontWeight: FontWeight.bold),
+                      ),
+                      const Spacer(),
+                      const BookRating(),
+                    ],
                   )
                 ],
               ),

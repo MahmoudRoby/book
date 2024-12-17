@@ -1,4 +1,5 @@
 import 'package:bookly/core/utils/style.dart';
+import 'package:bookly/feature/home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly/feature/home/presentation/views/widgets/custom_book_detail_app_bar.dart';
 import 'package:bookly/feature/home/presentation/views/widgets/custom_list_view_item.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,6 @@ class BookDetailBody extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30),
         child: Column(
-          
           children: [
             const CustomBookDetailAppBar(),
             Padding(
@@ -23,14 +23,21 @@ class BookDetailBody extends StatelessWidget {
             Text(
               'The Jungle Book',
               style: Styles.textStyle30.copyWith(fontWeight: FontWeight.bold),
-              
+            ),
+            const SizedBox(
+              height: 3,
             ),
             Text(
               'Rudyard Kipling',
               style: Styles.textStyle18.copyWith(
                   fontStyle: FontStyle.italic, fontWeight: FontWeight.w500),
             ),
-            
+            const SizedBox(
+              height: 18,
+            ),
+            const BookRating(
+              mainAxisAlignment: MainAxisAlignment.center,
+            ),
           ],
         ),
       ),

@@ -28,7 +28,9 @@ class BookRating extends StatelessWidget {
         Opacity(
           opacity: .5,
           child: Text('(2013)', style: Styles.textStyle14),
-        )
+        ),
+        
+
       ],
     );
   }

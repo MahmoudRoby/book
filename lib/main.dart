@@ -1,7 +1,7 @@
 import 'package:bookly/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 
 import 'feature/splash/presentation/views/splash_view.dart';
 

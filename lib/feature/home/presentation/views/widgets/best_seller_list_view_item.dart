@@ -18,7 +18,7 @@ class BestSellerListViewItem extends StatelessWidget {
             aspectRatio: 2.5 / 4,
             child: Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(8),color: Colors.amber,
                 image: const DecorationImage(
                   image: AssetImage(AssetsApp.testImage),
                   fit: BoxFit.fill,

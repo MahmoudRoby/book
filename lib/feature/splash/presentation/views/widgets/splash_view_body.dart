@@ -1,3 +1,4 @@
+import 'package:bookly/constants.dart';
 import 'package:bookly/core/utils/assets.dart';
 
 import 'package:bookly/feature/splash/presentation/views/widgets/sliding_text.dart';
@@ -29,7 +30,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
       //   transition: Transition.fade,
       //   duration: kTranstionDuration,
       // );
-      GoRouter.of(context).push('/h');
+      GoRouter.of(context).push(kHomeView);
     });
   }
 

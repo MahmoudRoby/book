@@ -3,6 +3,7 @@ import 'package:bookly/feature/home/presentation/views/widgets/book_action.dart'
 import 'package:bookly/feature/home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly/feature/home/presentation/views/widgets/custom_book_detail_app_bar.dart';
 import 'package:bookly/feature/home/presentation/views/widgets/custom_list_view_item.dart';
+import 'package:bookly/feature/home/presentation/views/widgets/similar_books_list_view.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailBody extends StatelessWidget {
@@ -34,19 +35,29 @@ class BookDetailBody extends StatelessWidget {
                   fontStyle: FontStyle.italic, fontWeight: FontWeight.w500),
             ),
             const SizedBox(
-              height: 18,
+              height: 3,
             ),
             const BookRating(
               mainAxisAlignment: MainAxisAlignment.center,
             ),
             const SizedBox(
-              height: 38,
+              height: 5,
             ),
-            const BooksAction()
+            const BooksAction(),
+            const SizedBox(
+              height: 3,
+            ),
+            const Align(
+              alignment: Alignment.centerLeft,
+              child: Text('you can read',style: Styles.textStyle14,),
+            ),
+            const SizedBox(
+              height: 3,
+            ),
+          const SimillarBooksListView()
           ],
         ),
       ),
     );
   }
 }
-

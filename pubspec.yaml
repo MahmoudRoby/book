@@ -30,6 +30,7 @@ environment:
 dependencies:
   bloc: ^8.1.4
   cupertino_icons: ^1.0.8
+  equatable: ^2.0.7
   flutter:
     sdk: flutter
   go_router: ^14.6.2

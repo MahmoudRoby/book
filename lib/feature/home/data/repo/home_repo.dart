@@ -9,6 +9,6 @@ abstract class HomeRepo {
   انا هحدد الاسم و الداتا اللى داخلة و اللى راجعه
   */
   Future<Either<Failure,List<BookModel>>> fetchFeatureBooks();
-  Future<Either<Failure,List<BookModel>>> fetchBestSellerBooks();
+  Future<Either<Failure,List<BookModel>>> fetchNewsetBooks();
 }
 // تحديد راجع الدوال اذا كان فاشل او ناجح(bookModel)

@@ -5,8 +5,8 @@ import 'package:equatable/equatable.dart';
 
 part 'featured_cubit_state.dart';
 
-class FeaturedCubitCubit extends Cubit<FeaturedCubitState> {
-  FeaturedCubitCubit(this.homeRepo) : super(FeaturedCubitInitial());
+class FeaturedBooksCubit extends Cubit<FeaturedCubitState> {
+  FeaturedBooksCubit(this.homeRepo) : super(FeaturedCubitInitial());
 
   final HomeRepo homeRepo;
 //عملت اوبجيكت من الريبو عشان استخدم الدوال اللى فيه

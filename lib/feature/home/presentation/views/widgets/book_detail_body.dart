@@ -20,7 +20,7 @@ class BookDetailBody extends StatelessWidget {
             const CustomBookDetailAppBar(),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: width * .17),
-              child: const CustomListViewItem(),
+              child: const CustomListViewItem(imageUrl: 'https://www.pngegg.com/ar/png-wmqnv',),
             ),
             Text(
               'The Jungle Book',

@@ -12,6 +12,7 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const CustomScrollView(
+      physics: BouncingScrollPhysics(),
       slivers: [
         SliverToBoxAdapter(
           child: SafeArea(
@@ -26,7 +27,7 @@ class HomeViewBody extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(left: 8),
                   child: Text(
-                    'Best Seller',
+                    'Newset Books',
                     style: Styles.textStyle20,
                   ),
                 ),

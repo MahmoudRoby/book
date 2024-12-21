@@ -1,4 +1,5 @@
 import 'package:bookly/core/utils/style.dart';
+
 import 'package:bookly/feature/home/data/model/book_model/book_model.dart';
 
 import 'package:bookly/feature/home/presentation/views/widgets/book_action.dart';

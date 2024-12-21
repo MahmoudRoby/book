@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/style.dart';
@@ -9,7 +8,9 @@ class CustomButton extends StatelessWidget {
       required this.textColor,
       required this.backgroundColor,
       required this.text,
-      this.borderRadius, this.fontSize});
+      this.borderRadius,
+      this.fontSize,
+      this.onPressed});
   /* انا عملت ويدجت يمكن اغير بعد خصائصها 
   وحددت الخصائص دى كمتغيرات وضفتها فى الكونستركتور 
   وعدلت عليها وخليتها تاخد قيم المتغيرات زى التكست تحت كده
@@ -19,11 +20,12 @@ class CustomButton extends StatelessWidget {
   final String text;
   final double? fontSize;
   final BorderRadius? borderRadius;
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: ElevatedButton(
-          onPressed: () {},
+          onPressed: onPressed,
           style: TextButton.styleFrom(
             shape: RoundedRectangleBorder(
               // هنا بقى قولتله لو لم يعطيك قيمة خد انت قيمة 16
@@ -39,7 +41,8 @@ class CustomButton extends StatelessWidget {
           child: Text(
             //هنا اهو المتغير
             text,
-            style: Styles.textStyle18.copyWith(color: textColor,fontSize: fontSize),
+            style: Styles.textStyle18
+                .copyWith(color: textColor, fontSize: fontSize),
           )),
     );
   }

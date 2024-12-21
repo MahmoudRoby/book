@@ -10,7 +10,8 @@ import 'package:flutter/material.dart';
 
 class BookDetailBody extends StatelessWidget {
   const BookDetailBody({
-    super.key, required this.bookModel,
+    super.key,
+    required this.bookModel,
   });
   final BookModel bookModel;
   @override
@@ -44,15 +45,17 @@ class BookDetailBody extends StatelessWidget {
             const SizedBox(
               height: 3,
             ),
-             BookRating(
+            BookRating(
               mainAxisAlignment: MainAxisAlignment.center,
-              rating: bookModel.volumeInfo.averageRating?? 0,
-              count: bookModel.volumeInfo.ratingsCount?? 0,
+              rating: bookModel.volumeInfo.averageRating ?? 0,
+              count: bookModel.volumeInfo.ratingsCount ?? 0,
             ),
             const SizedBox(
               height: 5,
             ),
-            const BooksAction(),
+            BooksAction(
+              bookModel: bookModel,
+            ),
             const SizedBox(
               height: 3,
             ),

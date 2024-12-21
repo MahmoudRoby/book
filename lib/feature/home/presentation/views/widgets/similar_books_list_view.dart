@@ -1,4 +1,3 @@
-
 import 'package:bookly/core/widgets/custom_error_message.dart';
 import 'package:bookly/feature/home/presentation/manger/simillar_books_cubit/simillar_books_cubit.dart';
 import 'package:bookly/feature/home/presentation/views/widgets/custom_list_view_item.dart';
@@ -23,7 +22,8 @@ class SimillarBooksListView extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 5),
                   child: CustomListViewItem(
-                    imageUrl: state.books[index].volumeInfo.imageLinks.thumbnail,
+                    imageUrl:
+                        state.books[index].volumeInfo.imageLinks.thumbnail,
                   ),
                 );
               },
@@ -31,8 +31,10 @@ class SimillarBooksListView extends StatelessWidget {
           );
         } else if (state is SimillarBooksFailure) {
           return CustomErrorWidget(errorMessage: state.errorMessage);
+        } else if (state is SimillarBooksLoading) {
+          return const CircularProgressIndicator();
         } else
-          return const Center(child: CircularProgressIndicator());
+          return const Text('No data');
       },
     );
   }

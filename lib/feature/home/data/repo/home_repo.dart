@@ -10,7 +10,7 @@ abstract class HomeRepo {
   */
   Future<Either<Failure,List<BookModel>>> fetchFeatureBooks();
   Future<Either<Failure,List<BookModel>>> fetchNewsetBooks();
-    Future<Either<Failure,List<BookModel>>> fetchSimllarBooks(String category);
+    Future<Either<Failure,List<BookModel>>> fetchSimllarBooks({required String category});
 
 }
 // تحديد راجع الدوال اذا كان فاشل او ناجح(bookModel)

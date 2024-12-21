@@ -1,8 +1,15 @@
+
 import 'package:bookly/core/widgets/custom_error_message.dart';
+
 import 'package:bookly/feature/home/presentation/manger/featured%20books%20cubit/featured_cubit_cubit.dart';
 import 'package:bookly/feature/home/presentation/views/widgets/custom_list_view_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../../../../constants.dart';
+
+
 
 class FeaturedListView extends StatelessWidget {
   const FeaturedListView({super.key});
@@ -21,7 +28,14 @@ class FeaturedListView extends StatelessWidget {
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: CustomListViewItem(imageUrl:state.books[index].volumeInfo.imageLinks.thumbnail ,),
+                  child: GestureDetector(
+                      onTap: () {
+                          GoRouter.of(context).push(kBookDetailView,extra: state.books[index]);
+                      },
+                      child: CustomListViewItem(
+                        imageUrl:
+                            state.books[index].volumeInfo.imageLinks.thumbnail,
+                      )),
                 );
               },
             ),
@@ -29,7 +43,7 @@ class FeaturedListView extends StatelessWidget {
         } else if (state is FeaturedCubitFailure) {
           return CustomErrorWidget(errorMessage: state.errorMessage);
         } else
-          return  const Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
       },
     );
   }

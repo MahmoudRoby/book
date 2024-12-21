@@ -1,10 +1,9 @@
 import 'package:bloc/bloc.dart';
-import 'package:bookly/core/error/failure.dart';
 import 'package:bookly/feature/home/data/model/book_model/book_model.dart';
-import 'package:bookly/feature/home/data/repo/home_repo.dart';
+
 import 'package:bookly/feature/home/data/repo/home_repo_impl.dart';
-import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
+
 
 part 'simillar_books_state.dart';
 
@@ -13,17 +12,13 @@ class SimillarBooksCubit extends Cubit<SimillarBooksState> {
 
   final HomeRepoImpl homeRepoImpl;
 
-  Future<void> fetchSimillarBooks() async {
+  Future<void> fetchSimillarBooks({required String category}) async {
     emit(SimillarBooksLoading());
-    var result = homeRepoImpl.fetchFeatureBooks();
+    var result = await homeRepoImpl.fetchSimllarBooks(category: category);
     result.fold((failure) {
       emit(SimillarBooksFailure(errorMessage: failure.errMessage));
     }, (books) {
       emit(SimillarBooksSuccess(books: books));
     });
   }
-}
-
-extension on Future<Either<Failure, List<BookModel>>> {
-  void fold(Null Function(dynamic failure) param0, Null Function(dynamic books) param1) {}
 }

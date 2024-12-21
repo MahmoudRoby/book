@@ -31,7 +31,7 @@ class BestSellerListView extends StatelessWidget {
         } else if (state is NewsetBooksFailuer) {
           return CustomErrorWidget(errorMessage: state.errorMessage);
         } else {
-          return const CircularProgressIndicator();
+          return const Center(child: CircularProgressIndicator());
         }
       },
     );

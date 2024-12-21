@@ -12,7 +12,6 @@ class HomeRepoImpl implements HomeRepo {
 
   HomeRepoImpl(this.apiService);
 
-  
   @override
   Future<Either<Failure, List<BookModel>>> fetchNewsetBooks() async {
     try {
@@ -32,6 +31,7 @@ class HomeRepoImpl implements HomeRepo {
     }
     return left(ServerFailure(e.toString()));
   }
+
 /*
 انا بعمل اوبجيكت من apiService وطبعا لازم اضيفه فى الكونستركتور
 استقبله فى متغير اسمه data كل ده عشان استدعى دالة get من api class
@@ -45,7 +45,25 @@ class HomeRepoImpl implements HomeRepo {
   Future<Either<Failure, List<BookModel>>> fetchFeatureBooks() async {
     try {
       var data = await apiService.get(
-          endPoint: 'volumes?Filtering=free-ebooks&q=subject:programming');
+          endPoint: 'volumes?Filtering=free-ebooks &q=subject:computer science');
+      List<BookModel> books = [];
+      for (var item in data['items']) {
+        books.add(BookModel.fromJson(item));
+      }
+      return right(books);
+    } on Exception catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioError(e));
+      }
+    }
+    return left(ServerFailure(e.toString()));
+  }
+
+  @override
+  Future<Either<Failure, List<BookModel>>> fetchSimllarBooks(String category) async {
+    try {
+      var data = await apiService.get(endPoint: 'volumes?Filtering=free-ebooks &Sorting=relevance &q=subject:programming');
+
       List<BookModel> books = [];
       for (var item in data['items']) {
         books.add(BookModel.fromJson(item));

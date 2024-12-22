@@ -11,9 +11,9 @@ class SearchListCubit extends Cubit<SearchListState> {
   SearchListCubit(this.searchRepoi) : super(SearchListInitial());
   final SearchRepoi searchRepoi;
 
-  Future<void> fetchRevelancBook() async {
+  Future<void> fetchRevelancBook(String searchedBook) async {
     emit(SearchListLoding());
-    var result = await searchRepoi.fetchRevelancBook();
+    var result = await searchRepoi.fetchRevelancBook(searchedBook);
     result.fold((failure) {
       emit(SearchListFailer(errMessage: failure.errMessage));
     }, (searchedBoks) {

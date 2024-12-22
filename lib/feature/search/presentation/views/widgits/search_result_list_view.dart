@@ -1,5 +1,6 @@
 import 'package:bookly/core/widgets/custom_error_message.dart';
-import 'package:bookly/feature/home/presentation/views/widgets/custom_list_view_item.dart';
+import 'package:bookly/feature/home/presentation/views/widgets/best_seller_list_view_item.dart';
+
 import 'package:bookly/feature/search/presentation/manager/cubit/search_list_cubit.dart';
 
 import 'package:flutter/material.dart';
@@ -20,10 +21,7 @@ class SearchResultListView extends StatelessWidget {
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 5),
-                child: CustomListViewItem(
-                  imageUrl:
-                      state.searchedBook[0].volumeInfo.imageLinks.smallThumbnail,
-                ),
+                child: BestSellerListViewItem(bookModel: state.searchedBook[index])
               );
             },
           );

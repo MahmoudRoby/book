@@ -1,5 +1,3 @@
-
-
 import 'package:bookly/core/utils/api_service.dart';
 import 'package:bookly/feature/home/data/model/book_model/book_model.dart';
 import 'package:bookly/feature/search/data/repo/search_repo.dart';
@@ -13,14 +11,19 @@ class SearchRepoi extends SearchRepo {
 
   SearchRepoi(this.apiService);
 
-  
-
   @override
-  Future<Either<Failure, List<BookModel>>> fetchRevelancBook() async {
+  Future<Either<Failure, List<BookModel>>> fetchRevelancBook(
+      String searchedBook) async {
+    if (searchedBook.isEmpty) {
+      return left(ServerFailure('No result founded'));
+    }
     try {
       var data = await apiService.get(
           endPoint:
-              'volumes?Filtering=free-ebooks &Sorting=relevance &q=subject:programming');
+              'volumes?Filtering=free-ebooks &Sorting=relevance &q=subject:$searchedBook');
+      if (data['items'] == null || data['items'].isEmpty) {
+        return left(ServerFailure('No data found'));
+      }
       List<BookModel> revelanceBooks = [];
       for (var item in data['items']) {
         revelanceBooks.add(BookModel.fromJson(item));

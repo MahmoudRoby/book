@@ -15,6 +15,7 @@ class CustomSearchTextField extends StatelessWidget {
               const SnackBar(content: Text('Please enter a vaid name')));
         } else {
           context.read<SearchListCubit>().fetchRevelancBook(controller.text);
+          //SearchListCubit(SearchRepoi(ApiService(Dio()))).fetchRevelancBook(controller.text);
         }
       },
       decoration: InputDecoration(
